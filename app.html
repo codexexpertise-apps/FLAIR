@@ -15,34 +15,30 @@
       align-items: stretch;
     }
 
-    #managerSubViewPanel.manager-subview-sources .manager-panel {
-      min-height: 0;
-      height: auto;
-    }
-
     #managerSubViewPanel.manager-subview-sources .manager-sources-performance-panel,
     #managerSubViewPanel.manager-subview-sources .manager-sources-lecture-panel {
       grid-column: auto;
       grid-row: auto;
+      min-height: 520px !important;
     }
 
     #managerSubViewPanel.manager-subview-sources .manager-sources-performance-panel .manager-bars-list {
-      max-height: 360px;
+      max-height: 430px;
       overflow: auto;
       padding-right: 4px;
     }
 
     #managerSubViewPanel.manager-subview-sources .manager-sources-lecture-panel .manager-bars-list {
-      max-height: 420px;
+      max-height: 430px;
       overflow: auto;
       padding-right: 4px;
     }
 
-    @media (max-width: 1100px) {
-      #managerSubViewPanel.manager-subview-sources {
-        grid-template-columns: 1fr;
-      }
-    }
+        @media (max-width: 1100px) {
+          #managerSubViewPanel.manager-subview-sources {
+            grid-template-columns: 1fr;
+       }
+     }
   </style>
 </head>
 <body>
