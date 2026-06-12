@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLAIR by CODEX EXPERTISE — Radar commercial industriel</title>
+  <meta name="description" content="FLAIR aide les commerciaux industriels à détecter, scorer et prioriser les signaux commerciaux utiles avant le CRM." />
+
+  <meta name="theme-color" content="#111827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FLAIR">
+
+  <link rel="icon" type="image/png" href="./logo-flair-icon.png">
+  <link rel="apple-touch-icon" href="./logo-flair-icon.png">
+
+  <link rel="stylesheet" href="landing.css" />
+</head>
+<body>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('invitation')) {
+        window.location.replace('app.html?' + params.toString());
+      }
+    })();
+  </script>
+
+  <header class="landing-header">
+    <a class="landing-brand" href="#top" aria-label="FLAIR accueil">
+      <img src="logo_flair_maskable.png" alt="FLAIR by codex expertise" class="landing-logo-img" />
+    </a>
+
+    <nav class="landing-nav" aria-label="Navigation principale">
+      <a href="#signaux">Signaux</a>
+      <a href="#fonctionnement">Méthode</a>
+      <a href="#produit">Produit</a>
+      <a href="#crm">Positionnement</a>
+      <a class="nav-login" href="app.html">Se connecter</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero-section">
+      <div class="hero-copy">
+        <p class="eyebrow">Radar commercial industriel</p>
+        <h1>FLAIR repère les signaux qui méritent ton attention commerciale.</h1>
+        <p class="hero-subtitle">
+          Une application simple pour détecter, analyser et prioriser les opportunités utiles
+          avant d’ouvrir le CRM.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-cta" href="#fonctionnement">Découvrir FLAIR</a>
+          <a class="secondary-cta" href="app.html">Se connecter</a>
+        </div>
+
+        <div class="hero-proof">
+          <span>Top 3 du jour</span>
+          <span>Signaux chauds</span>
+          <span>À contacter</span>
+        </div>
+      </div>
+
+      <aside class="hero-radar-card" aria-label="Schéma radar FLAIR">
+        <div class="radar-visual">
+          <span class="radar-dot radar-dot-1"></span>
+          <span class="radar-dot radar-dot-2"></span>
+          <span class="radar-dot radar-dot-3"></span>
+          <span class="radar-sweep"></span>
+        </div>
+
+        <div class="flow-card">
+          <div><strong>Signal détecté</strong><small>Projet, rappel, presse, recrutement…</small></div>
+          <span>→</span>
+          <div><strong>Score & chaleur</strong><small>Chaud, tiède ou froid</small></div>
+          <span>→</span>
+          <div><strong>Action</strong><small>Top 3, à contacter, à suivre</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="signaux" class="signals-section compact-section">
+      <div class="section-title">
+        <p class="eyebrow">Signaux détectables</p>
+        <h2>Des informations dispersées deviennent des priorités claires.</h2>
+      </div>
+
+      <div class="signal-grid">
+        <article><span>🏭</span><strong>Nouvelle ligne</strong><small>Production ou conditionnement</small></article>
+        <article><span>⚠️</span><strong>Rappel produit</strong><small>Qualité, contaminant, corps étranger</small></article>
+        <article><span>👤</span><strong>Recrutement</strong><small>Qualité, production, maintenance</small></article>
+        <article><span>📈</span><strong>Investissement</strong><small>Modernisation ou nouveau site</small></article>
+        <article><span>📄</span><strong>Appel d’offres</strong><small>Consultation ou marché public</small></article>
+        <article><span>📰</span><strong>Presses</strong><small>Régionales et spécialisées</small></article>
+      </div>
+    </section>
+
+    <section id="fonctionnement" class="how-section compact-section">
+      <div class="section-title">
+        <p class="eyebrow">Méthode FLAIR</p>
+        <h2>Un flux simple : détecter, analyser, prioriser, agir.</h2>
+      </div>
+
+      <div class="how-grid">
+        <article>
+          <span class="step-number">1</span>
+          <h3>Ajoute un signal</h3>
+          <p>Entreprise, titre, source et contexte terrain.</p>
+        </article>
+        <article>
+          <span class="step-number">2</span>
+          <h3>FLAIR analyse</h3>
+          <p>Score, chaleur, raison et angle commercial.</p>
+        </article>
+        <article>
+          <span class="step-number">3</span>
+          <h3>Le Top 3 guide</h3>
+          <p>Le commercial garde la main sur ses priorités.</p>
+        </article>
+        <article>
+          <span class="step-number">4</span>
+          <h3>Le CRM prend le relais</h3>
+          <p>Le pipeline reste dans l’outil CRM existant.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="produit" class="preview-section compact-section">
+      <div class="section-title">
+        <p class="eyebrow">Aperçu produit</p>
+        <h2>Une vision claire. Des actions concrètes.</h2>
+      </div>
+
+      <div class="preview-grid">
+        <article>
+          <div class="preview-head">
+            <span>🔥</span>
+            <div>
+              <h3>Cockpit commercial</h3>
+              <p>Priorités du jour, signaux à contacter et actions rapides.</p>
+            </div>
+          </div>
+          <div class="product-shot product-shot-image">
+            <img src="flair-cockpit.png" alt="Aperçu du cockpit commercial FLAIR" loading="lazy" />
+          </div>
+        </article>
+
+        <article>
+          <div class="preview-head">
+            <span>📊</span>
+            <div>
+              <h3>Dashboard manager</h3>
+              <p>Activité équipe, performance, répartition par chaleur et signaux.</p>
+            </div>
+          </div>
+          <div class="product-shot product-shot-image">
+            <img src="flair-dashboard-manager.png" alt="Aperçu du dashboard manager FLAIR" loading="lazy" />
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="crm" class="crm-section compact-section">
+      <div>
+        <p class="eyebrow">Positionnement</p>
+        <h2>FLAIR n’est pas un CRM.</h2>
+        <p>
+          FLAIR est un radar commercial. Il aide à savoir quoi regarder,
+          quoi prioriser et quand agir.
+        </p>
+      </div>
+
+      <div class="crm-card">
+        <p>FLAIR détecte et qualifie les signaux.</p>
+        <p>FLAIR aide à prioriser les actions terrain.</p>
+        <p>Le CRM centralise et suit les opportunités.</p>
+        <strong>FLAIR ne remplace pas ton CRM. Il t’aide à savoir quoi regarder avant de l’ouvrir.</strong>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div>
+        <h2>Repérez. Priorisez. Agissez.</h2>
+        <p>Un radar simple pour les commerciaux industriels.</p>
+      </div>
+      <a class="primary-cta" href="app.html">Accéder à FLAIR</a>
+    </section>
+  </main>
+
+  <footer class="landing-footer">
+    <img src="logo_flair_maskable.png" alt="FLAIR by codex expertise" class="footer-logo-img" />
+  </footer>
+</body>
+</html>

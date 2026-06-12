@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLAIR</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1 class="app-logo-title"><img src="logo_flair_maskable.png" alt="FLAIR by codex expertise" class="app-logo-img" /></h1>
+  <h2>Détecteur de Signaux Commerciaux</h2>
+
+  <section id="invitationLanding" class="invitation-landing" style="display:none;">
+  <div class="invitation-landing-card">
+    <p class="manager-kicker">Invitation FLAIR</p>
+    <h3 id="invitationLandingTitle">Vous êtes invité à rejoindre une équipe</h3>
+    <p id="invitationLandingText">
+      Créez votre compte avec l’email invité pour rejoindre votre équipe FLAIR.
+    </p>
+    <div class="invitation-landing-meta">
+      <span id="invitationLandingEmail">—</span>
+      <span id="invitationLandingRegion">—</span>
+    </div>
+  </div>
+</section>
+
+  <!-- AUTH -->
+  <div id="auth">
+    <input id="email" placeholder="Email" />
+    <div class="password-wrap">
+      <input id="password" type="password" placeholder="Mot de passe" />
+      <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility()" aria-label="Afficher ou masquer le mot de passe" title="Afficher / masquer le mot de passe"><span class="eye-icon" aria-hidden="true"></span></button>
+    </div>
+    <button class="forgot-password-link" type="button" onclick="resetPassword()">Mot de passe oublié ?</button>
+    <div class="auth-actions">
+      <button class="auth-primary-btn" onclick="signIn()">Se connecter</button>
+      <button class="auth-secondary-btn" onclick="signUp()">Créer mon compte</button>
+    </div>
+  </div>
+
+    <!-- ONBOARDING METIER -->
+  <section id="onboardingMetier" class="onboarding-metier" style="display:none;">
+    <div class="onboarding-shell">
+
+      <div class="onboarding-left">
+        <div class="onboarding-brand">
+          <img src="logo_flair_maskable.png" alt="FLAIR by codex expertise" class="onboarding-logo-img" />
+        </div>
+
+        <div class="onboarding-title-block">
+          <p class="onboarding-kicker">Assistant métier industriel</p>
+          <h2>Bienvenue dans <span>FLAIR</span></h2>
+          <p id="onboardingIntroText">
+            Configurez votre environnement métier afin que FLAIR détecte les signaux
+            les plus pertinents pour votre activité.
+          </p>
+        </div>
+
+        <div class="doctrine-onboarding-card">
+          <strong>Doctrine FLAIR</strong>
+          <p>
+            FLAIR détecte, score, priorise et déclenche l’action.<br>
+            <span>Le CRM gère ensuite la relation commerciale.</span>
+          </p>
+        </div>
+
+        <div class="onboarding-pill-grid">
+          <div><strong>Détecter</strong><small>Veille commerciale ciblée</small></div>
+          <div><strong>Scorer</strong><small>Priorisation explicable</small></div>
+          <div><strong>Agir</strong><small>Top signaux terrain</small></div>
+        </div>
+      </div>
+
+      <div class="onboarding-card">
+        <div class="onboarding-card-head">
+          <div class="onboarding-icon">◎</div>
+          <div>
+            <h3>Votre environnement métier</h3>
+            <p>Quelques informations pour personnaliser votre cockpit FLAIR.</p>
+          </div>
+        </div>
+
+        <div class="onboarding-form">
+          <div class="onboarding-form-row">
+  <label>
+    Prénom
+    <input id="onboardingPrenom" placeholder="Ex : François" />
+  </label>
+
+  <label>
+    Nom
+    <input id="onboardingNom" placeholder="Ex : Martin" />
+  </label>
+</div>
+
+<label>
+  Société
+  <input id="onboardingSociete" placeholder="Ex : CODEX EXPERTISE..." />
+</label>
+
+          <label>
+            Spécialité métier
+            <select id="onboardingProfilMetier">
+              <option value="pesage">Pesage / étiquetage industriel</option>
+              <option value="detection">Détection de contaminants</option>
+              <option value="vision">Vision industrielle / contrôle qualité</option>
+              <option value="packaging">Emballage / film / thermoformage</option>
+              <option value="process">Process agroalimentaire</option>
+              <option value="chimie_logistique">Chimie / process / logistique industrielle</option>
+              <option value="batiment_industriel">Bâtiment industriel</option>
+              <option value="autre">Autre spécialité industrielle</option>
+            </select>
+          </label>
+
+          <label>
+            Fonction
+            <select id="onboardingFonction">
+              <option value="commercial_industrie">Commercial industrie</option>
+              <option value="manager_commercial">Manager commercial</option>
+              <option value="responsable_grands_comptes">Responsable grands comptes</option>
+              <option value="direction_commerciale">Direction commerciale</option>
+              <option value="autre">Autre fonction</option>
+            </select>
+          </label>
+
+          <label>
+            Région
+            <select id="onboardingRegion">
+              <option value="grand_est">Grand Est</option>
+              <option value="ile_de_france">Île-de-France</option>
+              <option value="hauts_de_france">Hauts-de-France</option>
+              <option value="bourgogne_franche_comte">Bourgogne-Franche-Comté</option>
+              <option value="auvergne_rhone_alpes">Auvergne-Rhône-Alpes</option>
+              <option value="nouvelle_aquitaine">Nouvelle-Aquitaine</option>
+              <option value="occitanie">Occitanie</option>
+              <option value="paca">PACA</option>
+              <option value="bretagne">Bretagne</option>
+              <option value="normandie">Normandie</option>
+              <option value="pays_de_la_loire">Pays de la Loire</option>
+              <option value="centre_val_de_loire">Centre-Val de Loire</option>
+              <option value="corse">Corse</option>
+              <option value="france">France entière</option>
+            </select>
+          </label>
+
+          <button class="onboarding-main-btn" onclick="sauvegarderOnboardingMetier()">
+            Accéder à mon cockpit
+          </button>
+
+          <p class="onboarding-note">
+            Vous pourrez modifier ces informations plus tard dans vos paramètres.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- APP -->
+  <div id="app" style="display:none;">
+    <div class="app-topbar">
+      <div class="view-switcher">
+        <button class="nav-btn active" id="btnCockpit" onclick="afficherVue('cockpit')">Cockpit commercial</button>
+        <button class="nav-btn" id="btnManager" data-manager-only onclick="afficherVue('manager')">
+          Dashboard Manager
+        </button>
+      </div>
+      <button class="logout-btn" onclick="logout()">Se déconnecter</button>
+    </div>
+
+    <div id="cockpitView" class="cockpit-shell">
+      <aside class="manager-sidebar manager-sidebar-pro cockpit-sidebar">
+        <div class="manager-brand manager-brand-pro">
+          <img src="logo_flair_maskable.png" alt="FLAIR by codex expertise" class="sidebar-logo-img" />
+        </div>
+
+        <div class="manager-menu-group">
+          <span>Cockpit</span>
+          <button class="manager-menu-btn active" data-cockpit-section-btn="main" onclick="afficherSectionCockpit('main')">⌂ Cockpit commercial</button>
+          <button class="manager-menu-btn" data-cockpit-section-btn="actifs" onclick="afficherSectionCockpit('actifs')">📂 Signaux actifs</button>
+          <button class="manager-menu-btn" data-cockpit-section-btn="historique" onclick="afficherSectionCockpit('historique')">🗂 Historique radar</button>
+        </div>
+
+        <div class="manager-menu-group" data-manager-only>
+          <span>Manager PRO</span>
+         <button class="manager-menu-btn" onclick="afficherVue('manager')">▣ Dashboard PRO</button>
+        </div>
+
+        <div class="manager-side-block manager-side-compact">
+          <span>Priorité terrain</span>
+          <small>Top 3, signaux à contacter et ajout rapide d’un nouveau signal.</small>
+        </div>
+
+        <div class="manager-sidebar-footer">
+          <button class="manager-menu-btn logout-sidebar" onclick="logout()">Se déconnecter</button>
+        </div>
+      </aside>
+
+      <main class="cockpit-main">
+        <div class="cockpit-main-header">
+          <div>
+            <p class="manager-kicker">Cockpit commercial</p>
+            <h3 id="cockpitWelcomeTitle">Vision terrain</h3>
+            <small id="cockpitRegionLabel" class="cockpit-region-label"></small>
+          </div>
+        </div>
+
+        <div class="doctrine-box cockpit-doctrine-mobile">
+          <strong>Doctrine FLAIR</strong>
+          <span>FLAIR détecte, score, priorise et déclenche l’action. Le CRM gère ensuite la relation commerciale.</span>
+        </div>
+
+        <div class="cockpit-mobile-tabs">
+          <button class="manager-menu-btn active" data-cockpit-section-btn="main" onclick="afficherSectionCockpit('main')">⌂ Priorités</button>
+          <button class="manager-menu-btn" data-cockpit-section-btn="actifs" onclick="afficherSectionCockpit('actifs')">📂 Signaux actifs</button>
+          <button class="manager-menu-btn" data-cockpit-section-btn="historique" onclick="afficherSectionCockpit('historique')">🗂 Historique</button>
+        </div>
+
+        <div id="cockpitMainSection" data-cockpit-section="main">
+        <div class="stats-row">
+          <div class="stat-card">
+            <span>Signaux détectés</span>
+            <strong id="statActifs">0</strong>
+          </div>
+
+          <div class="stat-card">
+            <span>Signaux chauds</span>
+            <strong id="statChauds">0</strong>
+          </div>
+
+          <div class="stat-card">
+            <span>Opportunités CRM créées</span>
+            <strong id="statAContacter">0</strong>
+          </div>
+
+          <div class="stat-card">
+            <span>Nouveaux</span>
+            <strong id="statNouveaux">0</strong>
+          </div>
+        </div>
+
+        <section class="dashboard-card cockpit-add-card cockpit-import-card">
+          <h3>🧠 Analyser un article / Importer un signal</h3>
+          <p class="cockpit-import-help">Collez un article, un résumé de veille ou un signal structuré. FLAIR extrait les informations utiles et l’ajoute au radar.</p>
+          <textarea id="texteSignalImport" class="cockpit-import-textarea" placeholder="Exemple : Cuisine Solutions annonce la construction d’une nouvelle usine en Normandie, dans l’Eure, afin d’augmenter ses capacités de production de plats cuisinés. Le projet prévoit de nouvelles lignes de conditionnement, des investissements en automatisation et une amélioration de la traçabilité. Cette évolution peut créer une opportunité commerciale pour les équipements de contrôle qualité, pesage, étiquetage ou packaging. Action conseillée : identifier le responsable production, qualité ou conditionnement et proposer un échange en amont du projet."></textarea>
+          <div class="cockpit-import-actions cockpit-import-actions-split">
+            <div class="cockpit-import-actions-left">
+              <button onclick="analyserArticleImporte()">Analyser et ajouter votre signal au radar</button>
+              <small id="importSignalStatus" class="cockpit-import-status"></small>
+            </div>
+            <button id="btnChercherOpportunitesIA" class="btn-ia-opportunites" onclick="chercherNouvellesOpportunitesIA()">🔍 Chercher de nouvelles opportunités IA</button>
+          </div>
+        </section>
+
+        <div class="dashboard-grid cockpit-dashboard-grid">
+
+          <section class="dashboard-card">
+            <h3>🔥 Top 3 du jour</h3>
+            <button onclick="actualiserTop3()">Actualiser le Top 3</button>
+            <div class="scroll-zone">
+              <div id="top3"></div>
+            </div>
+          </section>
+
+          <section class="dashboard-card">
+            <h3>📞 À contacter</h3>
+            <div class="scroll-zone">
+              <div id="aContacter"></div>
+            </div>
+          </section>
+
+        </div>
+        </div>
+
+        <section id="cockpitActifsSection" data-cockpit-section="actifs" class="dashboard-card signaux-large cockpit-secondary-section" style="display:none;">
+          <h3>📂 Tous les signaux actifs</h3>
+
+          <div class="actions-row">
+            <button onclick="chargerSignaux()">🔄 Rafraîchir</button>
+            <button onclick="analyserNouveauxSignaux()">🧠 Analyser</button>
+          </div>
+
+          <div class="filters-row">
+            <select id="filtreChaleur" onchange="chargerSignaux()">
+              <option value="">Toutes chaleurs</option>
+              <option value="chaud">🔥 Chaud</option>
+              <option value="tiede">🟠 Tiède</option>
+              <option value="froid">❄️ Froid</option>
+            </select>
+
+            <select id="filtreType" onchange="chargerSignaux()">
+              <option value="">Tous types</option>
+              <option value="appel_offre">Appel d’offre</option>
+              <option value="investissement">Investissement</option>
+              <option value="recrutement">Recrutement</option>
+              <option value="nouvelle_ligne">Nouvelle ligne</option>
+              <option value="qualite_rappel_conso">Qualité / rappel conso</option>
+              <option value="autre">Autre</option>
+            </select>
+
+            <select id="filtreStatut" onchange="chargerSignaux()">
+              <option value="">Tous statuts</option>
+              <option value="nouveau">Nouveau</option>
+              <option value="analyse">Analysé</option>
+              <option value="a_suivre">À suivre</option>
+            </select>
+
+            <select id="filtreProjetSuivi" onchange="chargerSignaux()">
+              <option value="">Tous projets</option>
+              <option value="suivis">📁 Projets suivis</option>
+              <option value="simples">Signaux simples</option>
+            </select>
+          </div>
+
+          <div class="scroll-zone scroll-zone-large">
+            <div id="signaux"></div>
+          </div>
+        </section>
+
+        <section id="cockpitHistoriqueSection" data-cockpit-section="historique" class="dashboard-card historique-box cockpit-secondary-section" style="display:none;">
+          <h3>🗂️ Historique radar</h3>
+          <p class="helper-text">Signaux à suivre ou historisés. FLAIR reste le radar ; le suivi détaillé reste dans le CRM.</p>
+          <div class="scroll-zone scroll-zone-large">
+            <div id="historique"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- DASHBOARD PRO MANAGER -->
+    <section id="managerView" class="manager-view" style="display:none;">
+      <aside class="manager-sidebar manager-sidebar-pro">
+        <div class="manager-brand manager-brand-pro">
+          <img src="logo_flair_maskable.png" alt="FLAIR by codex expertise" class="sidebar-logo-img" />
+        </div>
+
+        <div class="manager-menu-group">
+          <span>Manager PRO</span>
+          <button class="manager-menu-btn active" data-view-btn="manager" onclick="afficherVue('manager')">▣ Dashboard PRO</button>
+          <button class="manager-menu-btn" data-view-btn="invitations" onclick="afficherVue('invitations')">☷ Équipe & invitations</button>
+          <button class="manager-menu-btn" type="button">⏱ Relances légères</button>
+          <button class="manager-menu-btn" type="button">◉ Pertinence radar</button>
+          <button class="manager-menu-btn" type="button">◌ Sources & veille</button>
+        </div>
+
+        <div class="manager-side-block manager-side-compact manager-perimeter-card">
+          <span>Périmètre actif</span>
+          <strong id="managerTeamName">Équipe commerciale</strong>
+          <small id="managerTeamCount">— commercial</small>
+
+          <div id="managerTeamMembers" class="manager-team-members">
+            <small>Chargement équipe…</small>
+          </div>
+
+          <small id="managerPeriodSmall" class="manager-period-small">7 derniers jours</small>
+        </div>
+
+        <div class="manager-sidebar-footer">
+          <button class="manager-menu-btn logout-sidebar" onclick="logout()">Se déconnecter</button>
+        </div>
+      </aside>
+
+      <main class="manager-main manager-main-pro">
+        <div class="manager-header manager-header-compact">
+          <div>
+            <p class="manager-kicker">Dashboard PRO</p>
+            <h3 id="managerWelcomeTitle">Vision manager</h3>
+          </div>
+          <div class="manager-period manager-period-controls">
+            <span id="managerPeriodLabel">7 derniers jours</span>
+            <select id="managerPeriodFilter" onchange="chargerDashboardManager()">
+              <option value="7">7 jours</option>
+              <option value="30">30 jours</option>
+              <option value="90">90 jours</option>
+              <option value="year">Année</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="manager-kpi-grid manager-kpi-grid-pro">
+          <article class="manager-kpi-card manager-kpi-compact">
+            <span>Signaux actifs</span>
+            <strong id="mgrSignauxActifs">—</strong>
+            <small id="mgrSignauxActifsInfo">Flux exploitable</small>
+            <div id="mgrSparklineActifs" class="mini-sparkline mini-blue"></div>
+          </article>
+
+          <article class="manager-kpi-card manager-kpi-compact">
+            <span>Signaux chauds</span>
+            <strong id="mgrNouveauxSignaux">—</strong>
+            <small id="mgrNouveauxInfo">À analyser</small>
+            <div id="mgrSparklineNouveaux" class="mini-sparkline mini-green"></div>
+          </article>
+
+          <article class="manager-kpi-card manager-kpi-compact">
+            <span>Signaux contactés</span>
+            <strong id="mgrLeadsChauds">—</strong>
+            <small id="mgrLeadsChaudsInfo">Priorité terrain</small>
+            <div id="mgrSparklineChauds" class="mini-sparkline"></div>
+          </article>
+
+          <article class="manager-kpi-card manager-kpi-compact">
+            <span>À contacter</span>
+            <strong id="mgrAContacter">—</strong>
+            <small id="mgrAContacterInfo">Action attendue</small>
+            <div id="mgrSparklineAContacter" class="mini-sparkline mini-purple"></div>
+          </article>
+
+          <article class="manager-kpi-card manager-kpi-compact manager-kpi-alert">
+            <span>Relances en retard</span>
+            <strong id="mgrRelancesRetardKpi">—</strong>
+            <small id="mgrRelancesRetardInfo">À reprendre</small>
+            <div id="mgrSparklineRelances" class="mini-sparkline mini-red"></div>
+          </article>
+        </div>
+
+        <div class="manager-pro-grid manager-pro-grid-v51">
+          <section class="manager-panel manager-team-performance-panel">
+            <div class="manager-panel-head">
+              <h4>Performance de l’équipe</h4>
+              <span class="manager-mini-badge">Radar équipe</span>
+            </div>
+
+            <div class="manager-team-table-head">
+              <span>Commercial</span>
+              <span>Signaux</span>
+              <span>Chauds</span>
+              <span>Contactés</span>
+              <span>Pertinence</span>
+              <span>Activité</span>
+            </div>
+            <div id="mgrActiviteCommerciaux" class="manager-activity-list manager-team-performance-list"></div>
+          </section>
+
+          <section class="manager-panel manager-evolution-panel">
+            <div class="manager-panel-head">
+              <h4>Évolution des signaux détectés</h4>
+              <span class="manager-mini-badge">Période</span>
+            </div>
+            <div id="mgrEvolutionChart" class="manager-evolution-chart"></div>
+          </section>
+
+          <section class="manager-panel manager-heat-panel">
+            <div class="manager-panel-head">
+              <h4>Répartition par chaleur</h4>
+              <span class="manager-mini-badge">Qualité radar</span>
+            </div>
+            <div id="mgrHeatDonut" class="manager-heat-layout"></div>
+          </section>
+
+          <section class="manager-panel manager-top-crm-panel">
+            <div class="manager-panel-head">
+              <h4>Top des opportunités CRM créées</h4>
+              <span class="manager-mini-badge">Top 5</span>
+            </div>
+            <div id="mgrTopCrm" class="manager-bars-list"></div>
+          </section>
+
+          <section class="manager-panel manager-angle-panel">
+            <div class="manager-panel-head">
+              <h4>Répartition par angle</h4>
+              <span class="manager-mini-badge">Signaux</span>
+            </div>
+            <div id="mgrAngles" class="manager-bars-list"></div>
+          </section>
+        </div>
+      </main>
+    </section>
+    <!-- ÉQUIPE & INVITATIONS MANAGER -->
+    <section id="invitationsView" class="manager-view invitations-view" style="display:none;">
+      <aside class="manager-sidebar manager-sidebar-pro">
+        <div class="manager-brand manager-brand-pro">
+          <img src="logo_flair_maskable.png" alt="FLAIR by codex expertise" class="sidebar-logo-img" />
+        </div>
+
+        <div class="manager-menu-group">
+          <span>Manager PRO</span>
+          <button class="manager-menu-btn" data-view-btn="manager" onclick="afficherVue('manager')">▣ Dashboard PRO</button>
+          <button class="manager-menu-btn active" data-view-btn="invitations" onclick="afficherVue('invitations')">☷ Équipe & invitations</button>
+          <button class="manager-menu-btn" type="button">⏱ Relances légères</button>
+          <button class="manager-menu-btn" type="button">◉ Pertinence radar</button>
+          <button class="manager-menu-btn" type="button">◌ Sources & veille</button>
+        </div>
+
+        <div class="manager-side-block manager-side-compact manager-perimeter-card">
+          <span>Périmètre actif</span>
+          <strong id="inviteTeamName">Équipe commerciale</strong>
+          <small>Invitations & membres</small>
+          <small class="manager-period-small">Gestion simple de l’équipe</small>
+        </div>
+
+        <div class="manager-sidebar-footer">
+          <button class="manager-menu-btn logout-sidebar" onclick="logout()">Se déconnecter</button>
+        </div>
+      </aside>
+
+      <main class="manager-main manager-main-pro invitations-main">
+        <div class="manager-header manager-header-compact">
+          <div>
+            <p class="manager-kicker">Équipe & invitations</p>
+            <h3>Inviter et rattacher des commerciaux</h3>
+          </div>
+          <button class="manager-menu-btn invite-back-btn" onclick="afficherVue('manager')">← Retour dashboard</button>
+        </div>
+
+        <div class="invitations-grid">
+          <section class="manager-panel invite-form-panel">
+            <div class="manager-panel-head">
+              <h4>Inviter un commercial</h4>
+              <span class="manager-mini-badge">Manager</span>
+            </div>
+
+            <p class="manager-panel-note">
+              Crée une invitation rattachée automatiquement à ton équipe.
+            </p>
+
+            <label class="invite-label">
+              Email professionnel
+              <input id="inviteEmail" type="email" placeholder="ex : prenom.nom@entreprise.com" />
+            </label>
+
+            <div class="invite-form-row">
+              <label class="invite-label">
+                Prénom
+                <input id="invitePrenom" placeholder="ex : Jean" />
+              </label>
+
+              <label class="invite-label">
+                Nom
+                <input id="inviteNom" placeholder="ex : Dupont" />
+              </label>
+            </div>
+
+            <div class="invite-form-row">
+              <label class="invite-label">
+                Fonction
+                <select id="inviteFonction">
+                  <option value="commercial_industrie">Commercial industrie</option>
+                  <option value="autre">Autre fonction</option>
+                </select>
+              </label>
+
+              <label class="invite-label">
+                Profil métier
+                <select id="inviteProfilMetier">
+                  <option value="pesage">Pesage / étiquetage industriel</option>
+                  <option value="detection">Détection / contrôle qualité</option>
+                  <option value="vision">Vision industrielle / contrôle qualité</option>
+                  <option value="packaging">Packaging / films / étiquettes</option>
+                  <option value="process">Process agroalimentaire</option>
+                  <option value="chimie_logistique">Chimie / process / logistique industrielle</option>
+                  <option value="batiment_industriel">Bâtiment industriel</option>
+                  <option value="autre">Autre spécialité industrielle</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="invite-label">
+              Région principale
+              <select id="inviteRegion">
+                <option value="grand_est">Grand Est</option>
+                <option value="ile_de_france">Île-de-France</option>
+                <option value="hauts_de_france">Hauts-de-France</option>
+                <option value="bourgogne_franche_comte">Bourgogne-Franche-Comté</option>
+                <option value="auvergne_rhone_alpes">Auvergne-Rhône-Alpes</option>
+                <option value="nouvelle_aquitaine">Nouvelle-Aquitaine</option>
+                <option value="occitanie">Occitanie</option>
+                <option value="paca">PACA</option>
+                <option value="bretagne">Bretagne</option>
+                <option value="normandie">Normandie</option>
+                <option value="pays_de_la_loire">Pays de la Loire</option>
+                <option value="centre_val_de_loire">Centre-Val de Loire</option>
+                <option value="corse">Corse</option>
+                <option value="france">France entière</option>
+              </select>
+            </label>
+
+            <label class="invite-label">
+              Régions secondaires (optionnel)
+              <select id="inviteRegionsSecondaires" multiple size="4">
+                <option value="grand_est">Grand Est</option>
+                <option value="hauts_de_france">Hauts-de-France</option>
+                <option value="bourgogne_franche_comte">Bourgogne-Franche-Comté</option>
+                <option value="occitanie">Occitanie</option>
+                <option value="bretagne">Bretagne</option>
+                <option value="normandie">Normandie</option>
+                <option value="pays_de_la_loire">Pays de la Loire</option>
+              </select>
+              <small>Sélection multiple possible avec Ctrl / Cmd. Laisse vide si le commercial ne couvre qu’une région.</small>
+            </label>
+
+            <button class="invite-primary-btn" onclick="envoyerInvitation()">✈ Envoyer l’invitation</button>
+          </section>
+
+          <section class="manager-panel invite-list-panel">
+            <div class="manager-panel-head">
+              <h4>Invitations en attente</h4>
+              <span id="invitePendingCount" class="manager-mini-badge">0 invitation</span>
+            </div>
+            <div id="invitePendingList" class="invite-list"></div>
+          </section>
+
+          <section class="manager-panel invite-members-panel">
+            <div class="manager-panel-head">
+              <h4>Membres de l’équipe</h4>
+              <span id="inviteMembersCount" class="manager-mini-badge">0 membre</span>
+            </div>
+            <div id="inviteMembersList" class="invite-list"></div>
+          </section>
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="source-veille-rules.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
