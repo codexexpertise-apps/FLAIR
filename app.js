@@ -1138,7 +1138,7 @@ function renderManagerSourcesVeille(ctx, container) {
   const totalIa = (ctx.recherchesIa || []).reduce((sum, r) => sum + (Number(r.nb_signaux_distribues) || 0), 0);
 
   container.innerHTML = `
-    <section class="manager-panel manager-sources-performance-panel">
+    <section class="manager-panel manager-sources-performance-panel" style="min-height:420px;">
       <div class="manager-panel-head">
         <h4>Sources les plus performantes</h4>
         <span class="manager-mini-badge">${ctx.period.label}</span>
@@ -1158,7 +1158,7 @@ function renderManagerSourcesVeille(ctx, container) {
       </div>
     </section>
 
-    <section class="manager-panel manager-sources-lecture-panel">
+    <section class="manager-panel manager-sources-lecture-panel" style="min-height:420px;">
       <div class="manager-panel-head">
         <h4>Lecture veille</h4>
         <span class="manager-mini-badge">Radar</span>
