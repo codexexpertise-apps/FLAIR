@@ -1230,10 +1230,10 @@ function renderManagerRelancesLegeres(ctx, container) {
       <p class="manager-panel-note">Rappel simple : FLAIR signale les points à reprendre, sans automatisation ni suivi commercial lourd.</p>
       <div class="manager-kpi-grid manager-kpi-grid-pro" style="grid-template-columns: repeat(3, minmax(0, 1fr)); margin-bottom:14px;">
         <article class="manager-kpi-card manager-kpi-compact manager-kpi-alert">
-          <span>En retard</span>
+          <span>Relances à effectuer</span>
           <strong>${relancesRetard.length}</strong>
-          <small>relance_due_at dépassée</small>
-        </article>
+          <small>signaux à reprendre</small>
+      </article>
         <article class="manager-kpi-card manager-kpi-compact">
           <span>À contacter dormants</span>
           <strong>${aContacterDormants.length}</strong>
