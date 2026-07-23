@@ -1,0 +1,816 @@
+{
+  "meta": {
+    "nom": "DOCTRINE OFFICIELLE FLAIR",
+    "version": "V2026.2",
+    "statut": "OFFICIELLE",
+    "type": "Référentiel métier structuré",
+    "date_validation": "2026-07-23",
+    "langue": "fr-FR",
+    "modifiable_directement": false,
+    "devise": "FLAIR détecte, qualifie, certifie et distribue des opportunités commerciales industrielles.",
+    "primauté": "La doctrine prévaut sur le code, la base de données, les interfaces, les paramètres, les procédures, les prompts et les sorties IA."
+  },
+  "validation": {
+    "blocs_valides": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+    ],
+    "validation_complete": true,
+    "applicable_aux_nouvelles_collectes": true
+  },
+  "blocs": {
+    "A": {
+      "titre": "Identité, mission et périmètre",
+      "statut": "VALIDE",
+      "articles": {
+        "A1": "FLAIR est un Radar Commercial Industriel intelligent, associé à un Copilote Commercial, dont la mission est de détecter, qualifier, prioriser, enrichir et distribuer des opportunités industrielles réelles avant qu'elles n'entrent dans un CRM.",
+        "A2": "Aider les équipes commerciales industrielles à identifier plus tôt des opportunités réelles et à agir tant que la fenêtre commerciale reste ouverte.",
+        "A3": {
+          "est": [
+            "Radar Commercial Industriel",
+            "moteur de veille commerciale industrielle",
+            "moteur de qualification commerciale",
+            "moteur de priorisation",
+            "moteur d'aide à la décision",
+            "Copilote Commercial Industriel"
+          ]
+        },
+        "A4": {
+          "nest_pas": [
+            "CRM",
+            "ERP",
+            "logiciel marketing",
+            "prospection automatique",
+            "annuaire",
+            "générateur d'informations fictives",
+            "scraping incontrôlé",
+            "scoring arbitraire"
+          ],
+          "frontiere": "Le CRM commence après la création d'une opportunité qualifiée."
+        },
+        "A5": {
+          "utilisateurs": [
+            "dirigeants de PME industrielles",
+            "directeurs commerciaux",
+            "responsables commerciaux",
+            "commerciaux",
+            "technico-commerciaux",
+            "ingénieurs commerciaux",
+            "fabricants de machines industrielles",
+            "intégrateurs",
+            "distributeurs",
+            "agents commerciaux"
+          ]
+        },
+        "A6": {
+          "actions": [
+            "détecter",
+            "qualifier",
+            "enrichir",
+            "prioriser",
+            "distribuer"
+          ],
+          "limite": "FLAIR s'arrête avant la gestion CRM."
+        },
+        "A7": {
+          "principes": [
+            "qualité avant quantité",
+            "exploitabilité commerciale obligatoire",
+            "faits vérifiables",
+            "compatibilité par métier et non par secteur",
+            "fenêtre commerciale ouverte obligatoire",
+            "décisions explicables",
+            "le Copilote assiste sans remplacer le commercial",
+            "la doctrine prévaut sur l'implémentation"
+          ]
+        },
+        "A8": {
+          "positionnement": "FLAIR se situe en amont du CRM.",
+          "mission_officielle": "Transformer un flux d'informations industrielles en opportunités commerciales certifiées, priorisées et immédiatement exploitables par les équipes commerciales."
+        }
+      }
+    },
+    "B": {
+      "titre": "Principes fondamentaux",
+      "statut": "VALIDE",
+      "articles": {
+        "B1": "Qualité avant quantité.",
+        "B2": "Réalité des faits obligatoire.",
+        "B3": "Vérifiabilité obligatoire.",
+        "B4": {
+          "fraicheur_obligatoire": true,
+          "ordre": "avant métier, score, timing et certification",
+          "rejet_si_fenetre_fermee": true
+        },
+        "B5": "Exploitabilité commerciale obligatoire.",
+        "B6": "Compatibilité par métier.",
+        "B7": "Neutralité.",
+        "B8": "Explicabilité.",
+        "B9": "Le Copilote assiste sans remplacer le commercial.",
+        "B10": "Certification obligatoire avant distribution.",
+        "B11": {
+          "doctrine_prime_sur": [
+            "code",
+            "base de données",
+            "paramètres",
+            "interfaces",
+            "procédures",
+            "prompts",
+            "sorties IA"
+          ]
+        },
+        "B12": "Traçabilité obligatoire."
+      }
+    },
+    "C": {
+      "titre": "Acteurs, métiers et modes d'utilisation",
+      "statut": "VALIDE",
+      "articles": {
+        "C1": {
+          "roles": [
+            "Administrateur",
+            "Manager",
+            "Commercial",
+            "Solo"
+          ]
+        },
+        "C2": {
+          "administrateur": [
+            "gouvernance",
+            "paramétrage",
+            "contrôle",
+            "audit",
+            "gestion des référentiels"
+          ]
+        },
+        "C3": {
+          "manager": [
+            "pilotage",
+            "répartition",
+            "supervision",
+            "accompagnement",
+            "contrôle de l'exploitation"
+          ]
+        },
+        "C4": {
+          "commercial": [
+            "analyse",
+            "priorisation",
+            "passage à l'action",
+            "qualification complémentaire",
+            "décision commerciale"
+          ]
+        },
+        "C5": "Le mode Solo cumule les responsabilités de Manager et Commercial sans réduire les exigences doctrinales.",
+        "C6": "La distribution dépend de la compatibilité entre projet et métier commercial.",
+        "C7": "Les secteurs utilisateurs décrivent les organisations pouvant utiliser FLAIR sans déterminer seuls la distribution.",
+        "C8": {
+          "segments_explores": [
+            "agroalimentaire",
+            "pharmaceutique",
+            "cosmétique",
+            "plasturgie",
+            "bois",
+            "logistique",
+            "textile",
+            "recyclage",
+            "papier/carton",
+            "métallurgie",
+            "défense si validée ultérieurement"
+          ],
+          "regle": "Les segments servent à la détection ; la distribution repose toujours sur la compatibilité métier."
+        }
+      }
+    },
+    "D": {
+      "titre": "Pipeline officiel FLAIR",
+      "statut": "VALIDE",
+      "ordre": [
+        "D1 Détection",
+        "D2 Qualification de la source",
+        "D3 Validation du projet",
+        "D4 Validation de fraîcheur",
+        "D5 Qualification métier",
+        "D6 Qualification géographique",
+        "D7 Enrichissement",
+        "D8 Qualification commerciale",
+        "D9 Score",
+        "D10 Timing",
+        "D11 Certification",
+        "D12 Distribution"
+      ],
+      "regles": {
+        "ordre_obligatoire": true,
+        "fraicheur_avant_score": true,
+        "certification_avant_distribution": true,
+        "saut_etape_interdit": true
+      }
+    },
+    "E": {
+      "titre": "Règles de qualification des signaux",
+      "statut": "VALIDE",
+      "articles": {
+        "E1": {
+          "definition": "Information réelle et vérifiable révélant un projet, une évolution ou une décision susceptible de créer une opportunité commerciale pour au moins un métier FLAIR.",
+          "exemples": [
+            "création, extension ou modernisation de site",
+            "nouvelle ligne ou atelier",
+            "investissement industriel",
+            "augmentation de capacité",
+            "automatisation ou robotisation",
+            "évolution de process",
+            "conformité, sécurité ou contrôle qualité",
+            "recrutement lié à un projet",
+            "acquisition, fusion ou changement de direction à conséquence opérationnelle",
+            "consultation, appel d'offres ou recherche de fournisseurs",
+            "nouvelle phase d'un projet existant"
+          ]
+        },
+        "E2": {
+          "conditions_cumulatives": [
+            "entreprise ou site identifiable",
+            "fait industriel réel",
+            "preuve consultable",
+            "fenêtre commerciale crédiblement ouverte",
+            "au moins un métier compatible",
+            "action commerciale raisonnable possible",
+            "absence de doublon non justifié",
+            "qualification suffisamment fiable",
+            "capacité à satisfaire les contrôles de certification"
+          ]
+        },
+        "E3": {
+          "rejet_si": [
+            "projet fictif, hypothétique ou insuffisamment démontré",
+            "entreprise ou site non identifiable",
+            "source inaccessible, invérifiable ou non fiable",
+            "fenêtre commerciale définitivement fermée",
+            "projet terminé sans nouvelle phase exploitable",
+            "absence de compatibilité métier crédible",
+            "information trop générale",
+            "communication institutionnelle sans conséquence industrielle identifiable",
+            "doublon sans élément nouveau",
+            "score ou urgence artificiellement gonflés",
+            "contraintes de diffusion ou conformité non respectables"
+          ]
+        },
+        "E4": {
+          "principe": "La fraîcheur mesure l'existence d'une fenêtre commerciale encore ouverte à la date de collecte.",
+          "dates": [
+            "date du fait industriel",
+            "date de publication",
+            "date de détection",
+            "état réel du projet au jour de la vérification"
+          ],
+          "avant_score": true
+        },
+        "E5": {
+          "preuves_fenetre_ouverte": [
+            "chantier en cours",
+            "mise en service future",
+            "calendrier non achevé",
+            "extension annoncée",
+            "deuxième tranche",
+            "nouvelles lignes prévues",
+            "montée en capacité progressive",
+            "recrutement lié au projet",
+            "consultation en cours",
+            "autorisation active",
+            "financement récemment accordé",
+            "appel d'offres",
+            "programme pluriannuel",
+            "déclaration récente confirmant la poursuite"
+          ]
+        },
+        "E6": {
+          "qualification_metier_fondee_sur": [
+            "nature du projet",
+            "process concerné",
+            "équipements potentiellement nécessaires",
+            "problématiques industrielles",
+            "maturité du besoin",
+            "capacités réelles des utilisateurs FLAIR"
+          ],
+          "secteur_seul_insuffisant": true
+        },
+        "E7": {
+          "qualification_geographique": [
+            "site",
+            "département",
+            "région",
+            "régions secondaires",
+            "couverture nationale",
+            "territoire contractuel"
+          ],
+          "ne_compense_pas_incompatibilite_metier": true
+        },
+        "E8": {
+          "maturite": {
+            "M1": "Intention ou orientation",
+            "M2": "Préparation ou pré-étude",
+            "M3": "Projet validé ou engagé",
+            "M4": "Déploiement ou mise en service"
+          },
+          "note": "Un M4 peut être trop tardif sans phase complémentaire ouverte."
+        },
+        "E9": {
+          "facteurs_score": [
+            "solidité des preuves",
+            "fraîcheur",
+            "compatibilité métier",
+            "maturité",
+            "importance industrielle",
+            "ouverture de la fenêtre commerciale",
+            "précision des informations",
+            "capacité de passage à l'action"
+          ],
+          "gonflement_interdit": true,
+          "scores_tres_eleves_exceptionnels": true
+        },
+        "E10": {
+          "timings": {
+            "0-3 mois": "action rapide justifiée",
+            "3-6 mois": "préparation ou prise de contact à court terme",
+            "6-12 mois": "veille active et positionnement progressif",
+            "12-24 mois": "préparation de long terme avec fenêtre démontrée",
+            "À qualifier": "informations insuffisantes"
+          },
+          "urgence_artificielle_interdite": true
+        },
+        "E11": {
+          "priorite_fondee_sur": [
+            "score",
+            "timing",
+            "fraîcheur",
+            "maturité",
+            "compatibilité métier",
+            "capacité d'action"
+          ],
+          "taille_investissement_non_decisive_seule": true
+        },
+        "E12": {
+          "anti_doublon_sur": [
+            "entreprise",
+            "site",
+            "projet",
+            "source",
+            "période",
+            "nature de l'investissement"
+          ],
+          "nouveau_signal_si": [
+            "nouvelle phase",
+            "nouvelle ligne",
+            "extension",
+            "budget complémentaire",
+            "calendrier actualisé",
+            "changement de maturité",
+            "confirmation officielle",
+            "nouvelle fenêtre commerciale"
+          ]
+        },
+        "E13": {
+          "reevaluation_si": [
+            "nouvelle information",
+            "modification de fraîcheur",
+            "maturité",
+            "score",
+            "timing",
+            "compatibilité métier",
+            "exploitabilité"
+          ],
+          "datee_justifiee_tracee": true
+        }
+      }
+    },
+    "F": {
+      "titre": "Composants et moteurs fonctionnels",
+      "statut": "VALIDE",
+      "articles": {
+        "F1": {
+          "moteur": "détection",
+          "detection_ne_vaut_pas_certification": true
+        },
+        "F2": {
+          "moteur": "qualification",
+          "role": "Transformer une information brute en signal structuré."
+        },
+        "F3": {
+          "moteur": "maturité",
+          "echelle": [
+            "M1",
+            "M2",
+            "M3",
+            "M4"
+          ]
+        },
+        "F4": {
+          "moteur": "scoring",
+          "apres_fraicheur": true
+        },
+        "F5": {
+          "copilote": [
+            "synthèse",
+            "pertinence",
+            "angle d'approche",
+            "fonctions à contacter",
+            "action recommandée",
+            "plan d'appel",
+            "message ou email",
+            "points de vigilance"
+          ],
+          "invention_interdite": true
+        },
+        "F6": {
+          "coordonnees_sources": [
+            "site officiel",
+            "page contact",
+            "mentions légales",
+            "annuaire professionnel reconnu",
+            "page institutionnelle",
+            "profil professionnel public"
+          ],
+          "fabrication_interdite": true
+        },
+        "F7": {
+          "niveaux_enrichissement": {
+            "1": "Minimal",
+            "2": "Exploitable",
+            "3": "Enrichi",
+            "4": "Ciblé"
+          }
+        },
+        "F8": {
+          "personnalisation_autorisee": true,
+          "faits_fondamentaux_immutables": true
+        },
+        "F9": {
+          "cockpit_commercial": true,
+          "est_un_crm": false
+        },
+        "F10": {
+          "dashboard_manager": "pilotage, accompagnement et répartition"
+        },
+        "F11": {
+          "dashboard_solo": true,
+          "exigences_identiques": true
+        },
+        "F12": {
+          "collecte_IA_obligations": [
+            "respect du périmètre métier",
+            "sources réelles",
+            "pipeline officiel",
+            "conclusions explicites",
+            "rejet des informations insuffisantes",
+            "anti-doublon",
+            "sortie contrôlable"
+          ],
+          "origine_IA_ne_vaut_pas_certification": true
+        },
+        "F13": {
+          "collecte_Terrain_champs": [
+            "date",
+            "lieu",
+            "entreprise",
+            "nature du projet",
+            "état d'avancement",
+            "éléments observés ou rapportés",
+            "possibilité de vérification"
+          ]
+        },
+        "F14": {
+          "collecte_manuelle_meme_pipeline": true
+        },
+        "F15": {
+          "reserve_IA_temporaire": true,
+          "nouvelle_verification_avant_distribution_si_delai_significatif": true
+        }
+      }
+    },
+    "G": {
+      "titre": "Certification qualité FLAIR",
+      "statut": "VALIDE",
+      "articles": {
+        "G1": {
+          "garantit": "qualité du processus de qualification",
+          "ne_garantit_pas": "réalisation d'une vente"
+        },
+        "G2": {
+          "controles": [
+            "réalité du projet",
+            "crédibilité des sources",
+            "fraîcheur",
+            "fenêtre commerciale",
+            "compatibilité métier",
+            "compatibilité géographique",
+            "maturité",
+            "score",
+            "timing",
+            "enrichissement",
+            "exploitabilité commerciale",
+            "anti-doublon",
+            "traçabilité",
+            "conformité des données",
+            "contrôle final"
+          ]
+        },
+        "G3": {
+          "source_existe_consultable_et_soutient_les_faits": true
+        },
+        "G4": {
+          "etats_fraicheur": [
+            "fenêtre ouverte",
+            "fenêtre ouverte sous réserve",
+            "fenêtre non démontrée",
+            "fenêtre fermée"
+          ],
+          "poursuite_autorisee": [
+            "fenêtre ouverte",
+            "fenêtre ouverte sous réserve"
+          ]
+        },
+        "G5": {
+          "certification_metier_justification_objective": true
+        },
+        "G6": {
+          "coherence_score_maturite_timing": true
+        },
+        "G7": {
+          "recherche_coordonnees_tracee": true
+        },
+        "G8": {
+          "copilote_regles": [
+            "fondé sur les faits",
+            "faits et recommandations distingués",
+            "adapté au métier",
+            "pas d'affirmation non démontrée",
+            "action réaliste",
+            "besoin probable non présenté comme certain"
+          ]
+        },
+        "G9": {
+          "SQL_controles": [
+            "schéma",
+            "types",
+            "champs obligatoires",
+            "valeurs autorisées",
+            "contraintes CHECK",
+            "clés et relations",
+            "unicité",
+            "politiques applicables",
+            "conventions de nommage et format"
+          ],
+          "SQL_executable_mais_non_conforme_refuse": true
+        },
+        "G10": {
+          "controle_final_obligatoire": true
+        },
+        "G11": {
+          "seul_signal_certifie_diffusable": true,
+          "usages": [
+            "SQL de production",
+            "réserve comme signal qualifié",
+            "distribution commerciale",
+            "présentation comme opportunité FLAIR"
+          ]
+        },
+        "G12": {
+          "non_conformites": {
+            "mineure": "corrigeable",
+            "majeure": "empêche la certification",
+            "critique": "fausse information, fenêtre fermée, source inexistante, doublon trompeur ou incompatibilité fondamentale"
+          },
+          "issues": [
+            "correction",
+            "demande d'information",
+            "mise en attente",
+            "déclassement",
+            "rejet"
+          ]
+        },
+        "G13": {
+          "preuve_certification": [
+            "version doctrine",
+            "date",
+            "résultat",
+            "origine",
+            "sources principales",
+            "réserves éventuelles",
+            "identité logique du processus ou opérateur"
+          ]
+        }
+      }
+    },
+    "H": {
+      "titre": "Gouvernance des données et cycle de vie",
+      "statut": "VALIDE",
+      "articles": {
+        "H1": {
+          "etats": [
+            "détecté",
+            "candidat",
+            "à vérifier",
+            "qualifié",
+            "certifié",
+            "distribué",
+            "suivi",
+            "historique",
+            "archivé",
+            "rejeté",
+            "supprimé"
+          ]
+        },
+        "H2": {
+          "dates": [
+            "fait industriel",
+            "publication",
+            "détection",
+            "création FLAIR",
+            "dernière vérification fraîcheur",
+            "certification",
+            "distribution",
+            "dernière mise à jour",
+            "archivage ou suppression"
+          ]
+        },
+        "H3": {
+          "revue_reserve_IA": [
+            "réévaluer fraîcheur",
+            "repérer doublons",
+            "retirer projets terminés",
+            "détecter nouvelles phases",
+            "corriger données obsolètes",
+            "préserver une réserve utile"
+          ]
+        },
+        "H4": {
+          "duree_fixe_doctrinale": false,
+          "revue_renforcee_indicative_mois": [
+            9,
+            12
+          ],
+          "nature": "politique d'exploitation"
+        },
+        "H5": {
+          "archivage_preserve_tracabilite": true
+        },
+        "H6": {
+          "suppression_encadree": true,
+          "ne_masque_pas_non_conformite": true
+        },
+        "H7": {
+          "signal_historique_peut_etre_inactif": true
+        },
+        "H8": {
+          "reactivation_nouvelle_qualification": true,
+          "reactivation_nouvelle_certification_selon_version_en_vigueur": true
+        },
+        "H9": {
+          "integrite_historique_preservee": true
+        },
+        "H10": {
+          "donnees": "publiques, professionnelles, pertinentes, utiles et proportionnées"
+        }
+      }
+    },
+    "I": {
+      "titre": "Gouvernance de la doctrine",
+      "statut": "VALIDE",
+      "articles": {
+        "I1": {
+          "referentiel_unique": true
+        },
+        "I2": {
+          "champ": [
+            "collectes IA",
+            "collectes Terrain",
+            "collectes manuelles",
+            "signaux candidats",
+            "signaux distribués",
+            "Copilote",
+            "Dashboards",
+            "Cockpits",
+            "imports et livraisons SQL",
+            "règles de base de données",
+            "développements influençant le raisonnement métier",
+            "audits"
+          ]
+        },
+        "I3": {
+          "primauté_doctrine": true,
+          "ecart_non_conformite": true
+        },
+        "I4": {
+          "version_identifiee_par": [
+            "numéro",
+            "statut",
+            "date validation",
+            "historique",
+            "autorité"
+          ],
+          "version_validee_non_modifiable_directement": true
+        },
+        "I5": {
+          "evolution": [
+            "besoin",
+            "analyse impact",
+            "proposition",
+            "examen compatibilité",
+            "validation officielle",
+            "nouvelle version",
+            "publication changements",
+            "audit mise en conformité"
+          ]
+        },
+        "I6": {
+          "version_majeure_si": [
+            "mission",
+            "principe non négociable",
+            "pipeline",
+            "certification fondamentale",
+            "frontière FLAIR/CRM",
+            "distribution métier"
+          ]
+        },
+        "I7": {
+          "version_doctrine_rattachee_au_signal": true,
+          "reevaluation_selon_version_en_vigueur": true
+        },
+        "I8": {
+          "fichier_reference": "FLAIR-DOCTRINE.json",
+          "coherent_avec_document_humain": true,
+          "presence_ne_garantit_pas_application": true
+        },
+        "I9": {
+          "controle_impact_resultats": [
+            "conforme",
+            "conforme sous réserve",
+            "partiellement conforme",
+            "non conforme"
+          ]
+        },
+        "I10": {
+          "audit_article_par_article": true
+        },
+        "I11": {
+          "entree_en_vigueur": "2026-07-23",
+          "nouvelles_collectes_conformes": true,
+          "nouveaux_SQL_certifies": true,
+          "anciens_signaux_non_automatiquement_certifies": true,
+          "reutilisation_ancienne_exige_nouvelle_validation": true
+        },
+        "I12": {
+          "autorite": "gouvernance du projet FLAIR",
+          "modification_unilaterale_par_IA_developpeur_utilisateur_ou_logiciel_interdite": true
+        }
+      }
+    }
+  },
+  "regles_machine": {
+    "charger_avant_collecte": true,
+    "version_requise": "V2026.2",
+    "pipeline_obligatoire": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "D8",
+      "D9",
+      "D10",
+      "D11",
+      "D12"
+    ],
+    "refus_si": {
+      "fenetre_fermee": true,
+      "source_inverifiable": true,
+      "aucune_compatibilite_metier": true,
+      "doublon_sans_nouveaute": true
+    },
+    "interdictions": {
+      "score_avant_fraicheur": true,
+      "distribution_avant_certification": true,
+      "invention": true
+    },
+    "sortie": {
+      "explicable": true,
+      "faits_et_recommandations_distincts": true,
+      "qualite_prime_sur_quantite": true
+    },
+    "certification": {
+      "version_doctrine_enregistree": true,
+      "date_enregistree": true,
+      "statut_conformite_enregistre": true,
+      "sources_enregistrees": true,
+      "reserves_enregistrees": true
+    }
+  }
+}
