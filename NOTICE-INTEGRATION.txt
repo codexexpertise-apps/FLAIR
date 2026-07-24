@@ -1,0 +1,18 @@
+FLAIR — Intégration Doctrine V2026.2
+
+Fichiers à remplacer / ajouter à la racine GitHub :
+- app.html (remplace le fichier existant)
+- app.js (remplace le fichier existant)
+- flair-doctrine-loader.js (nouveau fichier)
+
+Pré-requis :
+- FLAIR-DOCTRINE.json doit rester présent à la racine du dépôt.
+
+Modifications :
+1. flair-annuaire-provider.js reste dans GitHub mais son chargement est commenté tant que l'Edge Function Supabase flair-annuaire n'est pas déployée.
+2. La doctrine V2026.2 est chargée avant l'initialisation de la session FLAIR.
+3. L'application refuse de démarrer si la doctrine est absente, invalide, non officielle ou incomplète.
+4. Un contrôle de fraîcheur est exécuté avant le scoring des imports manuels.
+5. Une certification doctrinale est exécutée avant insertion et distribution.
+6. Les signaux de la réserve IA non certifiables sont exclus de la distribution.
+7. Les métadonnées doctrinales sont envoyées lorsque le schéma Supabase les accepte, avec fallback automatique pour ne pas casser les schémas actuels.
