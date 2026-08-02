@@ -1,7 +1,7 @@
 'use strict';
 
 const lexicalCases = [
-  { id: 'soins_dans_besoins', texte: 'besoins industriels', motCle: 'soins', attenduCible: false, defautHistoriquePossible: true },
+  { id: 'soins_dans_besoins', texte: 'besoins industriels', motCle: 'soins', attenduCible: false },
   { id: 'soins_positif', texte: 'fabrication de produits de soins', motCle: 'soins', attenduCible: true },
   { id: 'lot_dans_copilote', texte: 'copilote commercial', motCle: 'lot', attenduCible: false },
   { id: 'lots_positif', texte: 'production par lots', motCle: 'lots', attenduCible: true },
