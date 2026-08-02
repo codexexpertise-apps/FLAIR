@@ -45,16 +45,16 @@ function run() {
   console.log(`Règles veille : ${env.sourceRulesPath}\n`);
 
 
-  test('API publique FLAIR_METIER_LEXIQUE disponible en compatibilité stricte', () => {
+  test('API publique FLAIR_METIER_LEXIQUE disponible en correspondances génériques', () => {
     assert.strictEqual(typeof lexique, 'object');
-    assert.strictEqual(lexique.mode, 'compatibilite_stricte');
-    ['normaliserTexteHistoriqueSource', 'keywordMatchesTextHistoriqueSource', 'motClePresentHistoriqueMetier', 'diagnostiquerCorrespondanceHistorique']
+    assert.strictEqual(lexique.mode, 'correspondances_generiques');
+    ['normaliserTexteFlair', 'keywordMatchesText', 'motClePresentMetier', 'diagnostiquerCorrespondance']
       .forEach(name => assert.strictEqual(typeof lexique[name], 'function', `${name} absent`));
   });
 
-  test('API publique FLAIR_METIER_SECTEURS disponible en compatibilité stricte', () => {
+  test('API publique FLAIR_METIER_SECTEURS disponible avec le correctif lexical', () => {
     assert.strictEqual(typeof secteurs, 'object');
-    assert.strictEqual(secteurs.mode, 'compatibilite_stricte');
+    assert.strictEqual(secteurs.mode, 'correspondances_generiques');
     assert.strictEqual(typeof secteurs.detecterSecteurSousSecteur, 'function');
     assert.ok(Array.isArray(secteurs.rules));
     assert.ok(secteurs.rules.length >= 25, `Seulement ${secteurs.rules.length} règles sectorielles`);
