@@ -1861,18 +1861,16 @@
   }
 
   function keywordMatchesText(keyword, texteNormalise) {
-    const fn = getLexiqueApiFlair().keywordMatchesTextHistoriqueSource;
+    const lexique = getLexiqueApiFlair();
+    const fn = lexique.keywordMatchesText || lexique.keywordMatchesTextHistoriqueSource;
     if (typeof fn === "function") return fn(keyword, texteNormalise);
 
     const keywordNormalise = normaliserTexteFlair(keyword).trim();
     if (!keywordNormalise) return false;
-
-    if (keywordNormalise.length <= 3) {
-      const pattern = new RegExp(`(^|[^a-z0-9])${escapeRegexFlair(keywordNormalise)}([^a-z0-9]|$)`, "i");
-      return pattern.test(texteNormalise);
-    }
-
-    return texteNormalise.includes(keywordNormalise);
+    const tokens = keywordNormalise.split(/[^a-z0-9]+/i).filter(Boolean);
+    if (!tokens.length) return false;
+    const expression = tokens.map(escapeRegexFlair).join('[^a-z0-9]+');
+    return new RegExp(`(^|[^a-z0-9])${expression}(?=[^a-z0-9]|$)`, "i").test(String(texteNormalise || ""));
   }
 
   function ruleMatchesText(rule, texteNormalise) {
@@ -2020,9 +2018,9 @@
       classification_prudente: (() => {
         const texteBrutClassification = texte;
         const hasAlimentaire = ['alimentaire', 'agroalimentaire', 'ingredient', 'ingredients', 'deshydrat', 'déshydrat']
-          .some(mot => texteBrutClassification.includes(normaliserTexteFlair(mot)));
+          .some(mot => keywordMatchesText(mot, texteBrutClassification));
         const hasCosmetiqueFort = ['cosmetique', 'cosmétique', 'creme', 'crème', 'maquillage', 'parfum', 'soin']
-          .some(mot => texteBrutClassification.includes(normaliserTexteFlair(mot)));
+          .some(mot => keywordMatchesText(mot, texteBrutClassification));
         if (hasAlimentaire && !hasCosmetiqueFort) {
           return {
             secteur: 'Agroalimentaire',

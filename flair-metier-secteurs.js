@@ -42,17 +42,17 @@
 
   function motCleSecteurPresent(texteNormalise = '', motCle = '', normaliser = normaliserTexteSecteurs) {
     const lexique = window.FLAIR_METIER_LEXIQUE || {};
-    if (typeof lexique.motClePresentHistoriqueMetier === 'function') {
-      return lexique.motClePresentHistoriqueMetier(texteNormalise, motCle, normaliser);
+    const fn = lexique.motClePresentMetier || lexique.motClePresentHistoriqueMetier;
+    if (typeof fn === 'function') {
+      return fn(texteNormalise, motCle, normaliser);
     }
 
     const mot = normaliser(motCle);
     if (!mot) return false;
-    if (mot.length <= 4 || ['soin', 'lot', 'os', 'map'].includes(mot)) {
-      const escaped = mot.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      return new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, 'i').test(texteNormalise);
-    }
-    return texteNormalise.includes(mot);
+    const tokens = mot.split(/[^a-z0-9]+/i).filter(Boolean);
+    if (!tokens.length) return false;
+    const escaped = tokens.map(token => token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[^a-z0-9]+');
+    return new RegExp(`(^|[^a-z0-9])${escaped}(?=[^a-z0-9]|$)`, 'i').test(String(texteNormalise || ''));
   }
 
     const FLAIR_REGLES_CLASSIFICATION_SECTORIELLE = [
@@ -147,8 +147,8 @@
   }
 
   window.FLAIR_METIER_SECTEURS = {
-    version: 'lot3-extraction-mecanique',
-    mode: 'compatibilite_stricte',
+    version: 'lot4-correctif-lexical',
+    mode: 'correspondances_generiques',
     rules: FLAIR_REGLES_CLASSIFICATION_SECTORIELLE,
     normaliserTexteSecteurs,
     texteCompletSignalSecteurs,

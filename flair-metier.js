@@ -1206,20 +1206,17 @@ function calculerTimingCommercial(signal = {}, resultat = {}) {
 
 function motCleFlairPresent(texteNormalise = '', motCle = '') {
   const lexique = window.FLAIR_METIER_LEXIQUE || {};
-  if (typeof lexique.motClePresentHistoriqueMetier === 'function') {
-    return lexique.motClePresentHistoriqueMetier(texteNormalise, motCle, normaliserTexteSimple);
+  const fn = lexique.motClePresentMetier || lexique.motClePresentHistoriqueMetier;
+  if (typeof fn === 'function') {
+    return fn(texteNormalise, motCle, normaliserTexteSimple);
   }
 
   const mot = normaliserTexteSimple(motCle);
   if (!mot) return false;
-
-  // Fallback de compatibilité si le module lexical n'est pas chargé.
-  if (mot.length <= 4 || ['soin', 'lot', 'os', 'map'].includes(mot)) {
-    const escaped = mot.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    return new RegExp(`(^|[^a-z0-9])${escaped}([^a-z0-9]|$)`, 'i').test(texteNormalise);
-  }
-
-  return texteNormalise.includes(mot);
+  const tokens = mot.split(/[^a-z0-9]+/i).filter(Boolean);
+  if (!tokens.length) return false;
+  const escaped = tokens.map(token => token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('[^a-z0-9]+');
+  return new RegExp(`(^|[^a-z0-9])${escaped}(?=[^a-z0-9]|$)`, 'i').test(String(texteNormalise || ''));
 }
 
 function detecterSecteurSousSecteur(signal = {}) {
