@@ -1,8 +1,8 @@
 # Tests de non-régression — moteur métier FLAIR
 
-## Objectif 1
+## Objectif
 
-Ce dossier protège le comportement du moteur FLAIR avant toute extraction ou amélioration du lexique et de la classification sectorielle.
+Ce dossier protège le comportement du moteur FLAIR pendant l’extraction et l’amélioration du lexique et de la classification sectorielle.
 
 Il fonctionne indépendamment du canal d’arrivée du signal :
 
@@ -40,11 +40,11 @@ Le script affiche :
 
 - les tests réussis ;
 - les tests réellement échoués ;
-- les défauts historiques déjà connus et volontairement documentés.
+- les défauts historiques encore présents.
 
-Un défaut historique n’est pas considéré comme une régression tant que le chantier de correction lexicale n’a pas commencé.
+Depuis le Lot 4, les faux positifs `soins` dans `besoins` et la classification cosmétique associée sont corrigés et doivent rester à zéro.
 
-## Tests couverts dans ce premier lot
+## Tests couverts
 
 - disponibilité des API publiques `window.FLAIR_METIER` et `window.FLAIR_SOURCE_VEILLE` ;
 - normalisation et détection de mots-clés ;
@@ -86,12 +86,17 @@ Le moteur devra ensuite rester l’unique autorité pour :
 
 L’IA de collecte ne devra pas imposer elle-même ces décisions.
 
-## Prochaine étape du chantier
+## État actuel du chantier
 
-Après validation de cette batterie de tests :
+- Lot 1 : tests de non-régression — validé ;
+- Lot 2 : extraction du lexique — validé ;
+- Lot 3 : extraction de la classification sectorielle — validé ;
+- Lot 4 : correction générique des correspondances lexicales — validé.
 
-1. créer `flair-metier-lexique.js` ;
-2. reproduire d’abord le comportement actuel sans différence ;
-3. comparer automatiquement avant/après ;
-4. corriger ensuite génériquement les faux positifs lexicaux ;
-5. créer seulement après `flair-metier-secteurs.js`.
+Résultat attendu :
+
+```text
+Tests réussis : 27
+Tests échoués : 0
+Défauts historiques documentés : 0
+```
