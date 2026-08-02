@@ -1,6 +1,6 @@
 # Tests de non-régression — moteur métier FLAIR
 
-## Objectif
+## Objectif 1
 
 Ce dossier protège le comportement du moteur FLAIR avant toute extraction ou amélioration du lexique et de la classification sectorielle.
 
