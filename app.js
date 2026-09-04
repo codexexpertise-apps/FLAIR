@@ -4350,7 +4350,11 @@ async function copierSignalPourCrm(signalId) {
 
   try {
     await copierTexteDansPressePapier(texte);
-    alert('Bloc CRM copié. Tu peux maintenant le coller dans le CRM externe.');
+    alert(
+      'Bloc CRM copié dans ton presse-papiers.\n\n' +
+      'Ouvre maintenant ton CRM puis utilise Ctrl+V pour le coller.\n\n' +
+      'Une fois l\'opportunité créée dans ton CRM, clique sur « Opportunité CRM créée » dans FLAIR.'
+    );
   } catch (err) {
     console.error('Copie CRM impossible :', err);
     alert('Copie automatique impossible. Sélectionne le texte manuellement si besoin.');
@@ -4716,12 +4720,26 @@ async function enregistrerFeedback(signalId, feedback) {
 async function chargerStats() {
   try {
     const { data, error } = await window.FLAIR_DATA_SERVICES.signaux()
-      .select('statut, chaleur')
+      .select('id, statut, chaleur, crm_cree')
       .eq('commercial_id', user.id);
 
     if (error) throw error;
 
     const signaux = data || [];
+
+    // Les opportunités CRM peuvent être créées soit sur un signal personnel,
+    // soit sur une distribution dans signaux_commerciaux. On consolide les deux
+    // sans compter deux fois un même signal source.
+    const { data: distributionsCrm, error: distributionsCrmError } = await window.FLAIR_DATA_SERVICES.signauxCommerciaux()
+      .select('signal_id, crm_cree')
+      .eq('commercial_id', user.id);
+
+    if (distributionsCrmError) {
+      console.warn('Statistiques cockpit : lecture CRM signaux_commerciaux indisponible :', distributionsCrmError.message);
+    }
+
+    const distributions = distributionsCrmError ? [] : (distributionsCrm || []);
+    const idsSignauxDistribues = new Set(distributions.map(row => row.signal_id).filter(Boolean));
 
     const actifs = signaux.filter(s =>
       !['ignore', 'a_contacter', 'a_suivre', 'historique', 'traite'].includes(s.statut)
@@ -4732,9 +4750,11 @@ async function chargerStats() {
       !['ignore', 'a_contacter', 'a_suivre', 'historique', 'traite'].includes(s.statut)
     ).length;
 
-    const aContacter = signaux.filter(s =>
-      s.statut === 'a_contacter'
+    const crmCreesDistributions = distributions.filter(row => row.crm_cree === true).length;
+    const crmCreesSignauxPersonnels = signaux.filter(s =>
+      s.crm_cree === true && !idsSignauxDistribues.has(s.id)
     ).length;
+    const crmCrees = crmCreesDistributions + crmCreesSignauxPersonnels;
 
     const nouveaux = signaux.filter(s =>
       s.statut === 'nouveau'
@@ -4742,12 +4762,12 @@ async function chargerStats() {
 
     const statActifs = document.getElementById('statActifs');
     const statChauds = document.getElementById('statChauds');
-    const statAContacter = document.getElementById('statAContacter');
+    const statCrmCrees = document.getElementById('statCrmCrees');
     const statNouveaux = document.getElementById('statNouveaux');
 
     if (statActifs) statActifs.textContent = actifs;
     if (statChauds) statChauds.textContent = chauds;
-    if (statAContacter) statAContacter.textContent = aContacter;
+    if (statCrmCrees) statCrmCrees.textContent = crmCrees;
     if (statNouveaux) statNouveaux.textContent = nouveaux;
 
   } catch (err) {
