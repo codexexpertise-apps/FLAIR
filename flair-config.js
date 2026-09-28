@@ -30,6 +30,51 @@
     Object.assign(authContext, context || {});
   }
 
+  let recoveryMode = new URLSearchParams(window.location.hash.slice(1)).get('type') === 'recovery';
+  function showRecovery(message) {
+    recoveryMode = true;
+    const form = document.getElementById('passwordRecovery');
+    const auth = document.getElementById('auth');
+    if (form) form.style.display = 'block';
+    if (auth) auth.style.display = 'none';
+    const status = document.getElementById('passwordRecoveryMessage');
+    if (status && message) status.textContent = message;
+  }
+
+  supabaseClient.auth.onAuthStateChange((event) => {
+    if (event === 'PASSWORD_RECOVERY') showRecovery();
+  });
+
+  document.getElementById('passwordRecoveryForm')?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const password = document.getElementById('newPassword').value;
+    const confirmation = document.getElementById('confirmNewPassword').value;
+    const status = document.getElementById('passwordRecoveryMessage');
+    if (password.length < 6 || password !== confirmation) {
+      status.textContent = 'Les mots de passe doivent être identiques et contenir au moins 6 caractères.';
+      return;
+    }
+    const { data: { session } = {} } = await supabaseClient.auth.getSession();
+    if (!session) {
+      showRecovery('Lien expiré ou invalide. Demande un nouvel email depuis « Mot de passe oublié ? ».');
+      return;
+    }
+    const { error } = await supabaseClient.auth.updateUser({ password });
+    if (error) {
+      status.textContent = 'Impossible de modifier le mot de passe : ' + error.message;
+      return;
+    }
+    await supabaseClient.auth.signOut();
+    history.replaceState(null, '', window.location.pathname);
+    recoveryMode = false;
+    document.getElementById('passwordRecovery').style.display = 'none';
+    document.getElementById('auth').style.display = 'block';
+    document.getElementById('password').value = '';
+    alert('Mot de passe enregistré. Connecte-toi avec ton nouveau mot de passe.');
+  });
+
+  if (recoveryMode) showRecovery();
+
   async function resetPassword() {
     const emailInput = document.getElementById("email");
     const email = emailInput ? emailInput.value.trim() : "";
@@ -196,6 +241,11 @@
     }
 
     const { data } = await supabaseClient.auth.getSession();
+
+    if (recoveryMode) {
+      showRecovery(data?.session ? '' : 'Lien expiré ou invalide. Demande un nouvel email depuis « Mot de passe oublié ? ».');
+      return;
+    }
 
     if (data?.session) {
       sessionContext.setUser(data.session.user);

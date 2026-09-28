@@ -74,6 +74,17 @@
     </div>
   </div>
 
+  <section id="passwordRecovery" class="password-recovery" style="display:none; max-width:575px; margin:24px auto; padding:28px; border:1px solid #384153; border-radius:20px; background:#111827; color:#fff;">
+    <h3>Choisir un nouveau mot de passe</h3>
+    <p>Saisis ton nouveau mot de passe, puis valide pour enregistrer le changement.</p>
+    <form id="passwordRecoveryForm">
+      <input id="newPassword" type="password" autocomplete="new-password" minlength="6" required placeholder="Nouveau mot de passe" style="width:100%; box-sizing:border-box; padding:14px; margin:8px 0;" />
+      <input id="confirmNewPassword" type="password" autocomplete="new-password" minlength="6" required placeholder="Confirmer le mot de passe" style="width:100%; box-sizing:border-box; padding:14px; margin:8px 0;" />
+      <button type="submit" class="auth-primary-btn">Enregistrer le nouveau mot de passe</button>
+    </form>
+    <p id="passwordRecoveryMessage" role="status"></p>
+  </section>
+
   <!-- CHOIX MODE CREATION -->
   <section id="modeCreationFlair" class="mode-creation-flair" style="display:none;">
     <div class="mode-creation-card">
